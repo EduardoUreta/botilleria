@@ -54,8 +54,26 @@ footer{
 
 
 /*Boton comprar productos Aqui*/
-
+button {
+    font-size: 17px;
+    padding: 0.5em 2em;
+    border: transparent;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    background: rgb(97, 1, 25);
+    color: white;
+    border-radius: 4px;
+   }
    
+   button:hover {
+    background: rgb(94, 63, 1);
+    background: linear-gradient(90deg, rgb(12, 2, 91) 0%, rgb(0, 1, 64) 100%);
+   }
+   
+   button:active {
+    transform: translate(0em, 0.2em);
+   }
+
+
 .containerTragos{
     padding-right: 50px;
     display: grid;
@@ -132,4 +150,9 @@ footer{
         display: grid;
         grid-template-columns: repeat(4, 1fr); 
     }
+    #grilla{ /*GRID ÁREA responsive*/
+        height: 800px;
+        display: inline;
+    }
 }
+
