@@ -151,8 +151,9 @@ button {
         grid-template-columns: repeat(4, 1fr); 
     }
     #grilla{ /*GRID ÁREA responsive*/
-        height: 800px;
-        display: inline;
+        height: 300px;
+        width: 85%;
+        display: grid;
     }
 }
 
