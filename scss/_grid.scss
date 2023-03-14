@@ -1,0 +1,35 @@
+#grilla{
+    /*Activarmos grilla y con áreas*/
+    display: grid;
+    grid-template-areas: 
+    "header  header"
+    "productos   publicidad"
+    "footer  footer"
+    ;
+    grid-template-columns: 2fr 3fr;
+    grid-template-rows:1fr 2fr 1fr;
+}
+
+/*Asignamos las áreas*/
+header{
+    font-size: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    grid-area: header;
+    background: #16222A;
+}
+#productos{
+    grid-area: productos;
+    background: #0f1d26;
+}
+aside{
+    grid-area: publicidad;
+    background: #091e2b;
+}
+footer{
+    grid-area: footer;
+    background: #00131f;
+}

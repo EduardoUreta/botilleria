@@ -1,0 +1,13 @@
+.titulo-animado{
+    animation-name: zoomInDown;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 10s;
+    animation-delay: 0;
+}
+.subtitulo-animado{
+    animation-name: fadeUp;
+    animation-iteration-count: 1;
+    animation-duration: 2s;
+    animation-delay: 1s;
+}
