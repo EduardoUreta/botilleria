@@ -12,6 +12,10 @@ body{
     animation-duration: 10s;
     animation-delay: 0;
 }
+.titulo-animado:hover{
+    transform: scale(2,2);
+}
+
 .subtitulo-animado{
     animation-name: fadeUp;
     animation-iteration-count: 1;

@@ -98,7 +98,7 @@ button:hover {
 
 button:active {
   transform: translate(0em, 0.2em);
-  transform: scale(2);
+  transform: scale(2, 2);
 }
 
 #grilla {
@@ -138,6 +138,10 @@ footer {
   max-width: 450px;
 }
 
+.imgAnimado:hover {
+  transform: translate(10px, 10px);
+}
+
 body {
   font-family: "PT Sans", sans-serif;
   font-family: "Ubuntu", sans-serif;
@@ -149,6 +153,10 @@ body {
   animation-timing-function: ease-in;
   animation-duration: 10s;
   animation-delay: 0;
+}
+
+.titulo-animado:hover {
+  transform: scale(2, 2);
 }
 
 .subtitulo-animado {
