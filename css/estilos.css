@@ -88,6 +88,7 @@ button {
   background: rgb(97, 1, 25);
   color: white;
   border-radius: 4px;
+  text-decoration: none;
 }
 
 button:hover {
@@ -97,6 +98,7 @@ button:hover {
 
 button:active {
   transform: translate(0em, 0.2em);
+  transform: scale(2);
 }
 
 #grilla {
