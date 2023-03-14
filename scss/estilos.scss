@@ -1,8 +1,5 @@
-#pie{ 
-    background-color: black;
-    color:yellow;
-    text-align: center;
-}
+@import "pie";
+
 text{
     color: white;
 }
@@ -156,4 +153,3 @@ button {
         display: grid;
     }
 }
-
