@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=Ubuntu&display=swap');
+
+body{
+    font-family: 'PT Sans', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+}
+
 .titulo-animado{
     animation-name: zoomInDown;
     animation-iteration-count: 1;
@@ -9,5 +16,5 @@
     animation-name: fadeUp;
     animation-iteration-count: 1;
     animation-duration: 2s;
-    animation-delay: 1s;
+    animation-delay: 2s;
 }
