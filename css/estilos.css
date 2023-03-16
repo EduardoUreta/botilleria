@@ -26,14 +26,19 @@ body {
 
 @media screen and (max-width: 480px) {
   #grilla { /*GRID ÁREA responsive*/
-    height: 480px;
     display: grid;
-    grid-template-areas: "nav" "header" "productos" "publicidad" "footer";
-    grid-template-columns: 100%;
-    grid-template-rows: repeat(6, 1fr);
+    grid-template-areas: "header" "productos" "publicidad" "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px 100px 150px 100px;
   }
 }
 @media screen and (max-width: 992px) {
+  #grilla {
+    /*Activarmos grilla y con áreas*/
+    display: grid;
+    height: 300px;
+    width: 85%;
+  }
   .grid-container {
     width: 100%;
     display: grid;
@@ -101,12 +106,11 @@ button:active {
   transform: scale(2, 2);
 }
 
-#grilla {
-  /*Activarmos grilla y con áreas*/
+#grilla { /*GRID ÁREA responsive*/
   display: grid;
-  grid-template-areas: "header  header" "productos   publicidad" "footer  footer";
-  grid-template-columns: 2fr 3fr;
-  grid-template-rows: 1fr 2fr 1fr;
+  grid-template-areas: "header" "productos" "publicidad" "footer";
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, 1fr);
 }
 
 /*Asignamos las áreas*/
@@ -122,6 +126,8 @@ header {
 #productos {
   grid-area: productos;
   background: #0f1d26;
+  justify-content: center;
+  align-items: center;
 }
 
 aside {
@@ -132,6 +138,8 @@ aside {
 footer {
   grid-area: footer;
   background: #00131f;
+  justify-content: center;
+  align-items: center;
 }
 
 .imgtrago {

@@ -1,20 +1,24 @@
 @media screen and (max-width: 480px){
     #grilla{ /*GRID ÁREA responsive*/
-        height: 480px;
         display: grid;
         grid-template-areas: 
-        "nav"
         "header"
         "productos"
         "publicidad"
         "footer"
         ;
-        grid-template-columns: 100%;
-        grid-template-rows: repeat(6,1fr);
+        grid-template-columns: 1fr;
+        grid-template-rows: 100px 100px 150px 100px;
     }
 }
 
 @media screen and (max-width: 992px) {
+    #grilla{
+        /*Activarmos grilla y con áreas*/
+        display: grid;
+        height: 300px;
+        width: 85%;
+    }
     .grid-container{
         width: 100%;
 
