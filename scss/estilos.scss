@@ -5,6 +5,7 @@
 @import "grid";
 @import "imagenes";
 @import "textos";
+@import "animaciones";
 
 text{
     color: white;
@@ -17,4 +18,49 @@ text{
     grid-template-rows: 2fr;
 
 }
+//Al colocar estos mediaQuery en "_mediaQuery.scss", estos no se ejecutan.. por eso lo puse aqui
 
+@media screen and (max-width: 280px){
+    #grilla{ /*GRID ÁREA responsive*/
+        height: 500px;
+        width: 90%;
+        display: grid;
+        grid-template-areas: 
+        "header"
+        "productos"
+        "publicidad"
+        "footer"
+        ;
+        grid-template-columns: 1fr;
+        grid-template-rows: 23% 24% 32% 21%;
+    }
+    .grid-container{
+        width: 100%;
+        
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+        grid-template-rows: repeat(2,1fr);
+    }
+}
+@media screen and (min-width: 281px) and (max-width: 480px){
+    #grilla{ /*GRID ÁREA responsive*/
+        height: 500px;
+        width: 90%;
+        display: grid;
+        grid-template-areas: 
+        "header"
+        "productos"
+        "publicidad"
+        "footer"
+        ;
+        grid-template-columns: 1fr;
+        grid-template-rows: 30% 20% 30% 20%;
+    }
+    .grid-container{
+        width: 100%;
+        
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+        grid-template-rows: repeat(2,1fr);
+    }
+}

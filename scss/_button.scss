@@ -4,18 +4,19 @@ button {
     padding: 0.5em 2em;
     border: transparent;
     box-shadow: 2px 2px 4px rgba(0,0,0,0.4);
-    background: rgb(97, 1, 25);
-    color: white;
+    background: rgb(243, 250, 22);
+    text-decoration-color: white;
     border-radius: 4px;
-    text-decoration: none;  
+    text-decoration-line: none;
 }
    
 button:hover {
     background: rgb(94, 63, 1);
-    background: linear-gradient(90deg, rgb(12, 2, 91) 0%, rgb(0, 1, 64) 100%);
+    background: linear-gradient(90deg, rgb(22, 3, 166) 0%, rgb(0, 1, 64) 100%);
 }
    
 button:active {
     transform: translate(0em, 0.2em);
     transform: scale(2,2)
 }
+

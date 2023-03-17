@@ -1,13 +1,12 @@
 #grilla{ /*GRID ÁREA responsive*/
     display: grid;
     grid-template-areas: 
-    "header"
-    "productos"
-    "publicidad"
-    "footer"
+    "header header"
+    "productos publicidad"
+    "footer footer"
     ;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(4,1fr);
+    grid-template-columns: 33% 66%;
+    grid-template-rows: repeat(3,1fr);
 }
 
 /*Asignamos las áreas*/
@@ -30,6 +29,8 @@ header{
 aside{
     grid-area: publicidad;
     background: #091e2b;
+    justify-content: center;
+    align-items: center;
 }
 footer{
     grid-area: footer;

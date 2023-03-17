@@ -24,26 +24,20 @@ body {
   background: linear-gradient(to right, #1cefff, #c0c0aa); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-@media screen and (max-width: 480px) {
-  #grilla { /*GRID ÁREA responsive*/
-    display: grid;
-    grid-template-areas: "header" "productos" "publicidad" "footer";
-    grid-template-columns: 1fr;
-    grid-template-rows: 100px 100px 150px 100px;
-  }
-}
-@media screen and (max-width: 992px) {
+@media screen and (min-width: 481px) and (max-width: 992px) {
   #grilla {
     /*Activarmos grilla y con áreas*/
     display: grid;
     height: 300px;
     width: 85%;
+    grid-template-areas: "header header" "productos publicidad" "footer footer";
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 75px 150px 75px;
   }
   .grid-container {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
   .containerTragos {
     width: 100%;
@@ -90,15 +84,15 @@ button {
   padding: 0.5em 2em;
   border: transparent;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-  background: rgb(97, 1, 25);
-  color: white;
+  background: rgb(243, 250, 22);
+  text-decoration-color: white;
   border-radius: 4px;
-  text-decoration: none;
+  text-decoration-line: none;
 }
 
 button:hover {
   background: rgb(94, 63, 1);
-  background: linear-gradient(90deg, rgb(12, 2, 91) 0%, rgb(0, 1, 64) 100%);
+  background: linear-gradient(90deg, rgb(22, 3, 166) 0%, rgb(0, 1, 64) 100%);
 }
 
 button:active {
@@ -108,9 +102,9 @@ button:active {
 
 #grilla { /*GRID ÁREA responsive*/
   display: grid;
-  grid-template-areas: "header" "productos" "publicidad" "footer";
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-areas: "header header" "productos publicidad" "footer footer";
+  grid-template-columns: 33% 66%;
+  grid-template-rows: repeat(3, 1fr);
 }
 
 /*Asignamos las áreas*/
@@ -133,6 +127,8 @@ header {
 aside {
   grid-area: publicidad;
   background: #091e2b;
+  justify-content: center;
+  align-items: center;
 }
 
 footer {
@@ -174,6 +170,120 @@ body {
   animation-delay: 2s;
 }
 
+/*Productos*/
+.prodAnimado1 {
+  animation-name: bounce;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+  animation-delay: 0;
+}
+
+.prodAnimado2 {
+  animation-name: bounce;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+  animation-delay: 0.5s;
+}
+
+.prodAnimado3 {
+  animation-name: bounce;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+  animation-delay: 1s;
+}
+
+.prodAnimado4 {
+  animation-name: bounce;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+  animation-delay: 1.5s;
+}
+
+.prodAnimado5 {
+  animation-name: bounce;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+  animation-delay: 2s;
+}
+
+.prodAnimado6 {
+  animation-name: bounce;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+  animation-delay: 2.5s;
+}
+
+.prodAnimado7 {
+  animation-name: bounce;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+  animation-delay: 3s;
+}
+
+.prodAnimado8 {
+  animation-name: bounce;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+  animation-delay: 3.5s;
+}
+
+.prodAnimado9 {
+  animation-name: bounce;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+  animation-delay: 4s;
+}
+
+.prodAnimado10 {
+  animation-name: bounce;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+  animation-delay: 4.5s;
+}
+
+/*Promociones*/
+.promoAnimada1 {
+  animation-name: fade;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+  animation-delay: 0.5s;
+}
+
+.promoAnimada2 {
+  animation-name: fade;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+  animation-delay: 1.25s;
+}
+
+.promoAnimada3 {
+  animation-name: fade;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+  animation-delay: 2s;
+}
+
+.promoAnimada4 {
+  animation-name: fade;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+  animation-delay: 2.75s;
+}
+
+.promoAnimada5 {
+  animation-name: fade;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+  animation-delay: 3.5s;
+}
+
+.promoAnimada6 {
+  animation-name: fade;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+  animation-delay: 4.25s;
+}
+
 text {
   color: white;
 }
@@ -183,4 +293,37 @@ text {
   display: grid;
   grid-template-columns: 2fr;
   grid-template-rows: 2fr;
+}
+
+@media screen and (max-width: 280px) {
+  #grilla { /*GRID ÁREA responsive*/
+    height: 500px;
+    width: 90%;
+    display: grid;
+    grid-template-areas: "header" "productos" "publicidad" "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: 23% 24% 32% 21%;
+  }
+  .grid-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 281px) and (max-width: 480px) {
+  #grilla { /*GRID ÁREA responsive*/
+    height: 500px;
+    width: 90%;
+    display: grid;
+    grid-template-areas: "header" "productos" "publicidad" "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: 30% 20% 30% 20%;
+  }
+  .grid-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
 }/*# sourceMappingURL=estilos.css.map */
