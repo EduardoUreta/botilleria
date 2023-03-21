@@ -10,6 +10,8 @@
 }
 @mixin bordes(){
     border-radius: 5px;
+    justify-content: center;
+    align-items: center;
 }
 
 /*Asignamos las áreas*/
@@ -17,8 +19,6 @@ header{
     font-size: 30px;
 
     display: flex;
-    justify-content: center;
-    align-items: center;
 
     grid-area: header;
     background: #16222A;
@@ -27,21 +27,15 @@ header{
 #productos{
     grid-area: productos;
     background: #0f1d26;
-    justify-content: center;
-    align-items: center;
     @include bordes();
 }
 aside{
     grid-area: publicidad;
     background: #091e2b;
-    justify-content: center;
-    align-items: center;
     @include bordes();
 }
 footer{
     grid-area: footer;
-    background: #00131f;
-    justify-content: center;
-    align-items: center;  
+    background: #00131f; 
     @include bordes();
 }

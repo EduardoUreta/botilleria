@@ -8,7 +8,7 @@
 
 #pie:hover {
   background: linear-gradient(to right, red, blue);
-  color: white;
+  color: black;
 }
 
 /*Colores fondo*/
@@ -83,7 +83,7 @@ button {
   padding: 0.5em 2em;
   border: transparent;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-  background: rgb(243, 250, 22);
+  background: rgb(19, 124, 3);
   text-decoration-color: white;
   border-radius: 4px;
   text-decoration-line: none;
@@ -110,35 +110,35 @@ button:active {
 header {
   font-size: 30px;
   display: flex;
-  justify-content: center;
-  align-items: center;
   grid-area: header;
   background: #16222A;
   border-radius: 5px;
+  justify-content: center;
+  align-items: center;
 }
 
 #productos {
   grid-area: productos;
   background: #0f1d26;
+  border-radius: 5px;
   justify-content: center;
   align-items: center;
-  border-radius: 5px;
 }
 
 aside {
   grid-area: publicidad;
   background: #091e2b;
+  border-radius: 5px;
   justify-content: center;
   align-items: center;
-  border-radius: 5px;
 }
 
 footer {
   grid-area: footer;
   background: #00131f;
+  border-radius: 5px;
   justify-content: center;
   align-items: center;
-  border-radius: 5px;
 }
 
 .imgtrago {
@@ -146,7 +146,7 @@ footer {
 }
 
 .imgAnimado:hover {
-  transform: translate(10px, 10px);
+  transform: translate(20px, 20px);
 }
 
 .containerTragos {
@@ -185,113 +185,99 @@ body {
   animation-name: bounce;
   animation-iteration-count: 1;
   animation-duration: 2s;
-  animation-delay: 0;
+  animation-delay: 1;
 }
 
 .prodAnimado2 {
   animation-name: bounce;
   animation-iteration-count: 1;
   animation-duration: 2s;
-  animation-delay: 0.5s;
+  animation-delay: 2;
 }
 
 .prodAnimado3 {
   animation-name: bounce;
   animation-iteration-count: 1;
   animation-duration: 2s;
-  animation-delay: 1s;
+  animation-delay: 3;
 }
 
 .prodAnimado4 {
   animation-name: bounce;
   animation-iteration-count: 1;
   animation-duration: 2s;
-  animation-delay: 1.5s;
+  animation-delay: 4;
 }
 
 .prodAnimado5 {
   animation-name: bounce;
   animation-iteration-count: 1;
   animation-duration: 2s;
-  animation-delay: 2s;
+  animation-delay: 5;
 }
 
 .prodAnimado6 {
   animation-name: bounce;
   animation-iteration-count: 1;
   animation-duration: 2s;
-  animation-delay: 2.5s;
+  animation-delay: 6;
 }
 
 .prodAnimado7 {
   animation-name: bounce;
   animation-iteration-count: 1;
   animation-duration: 2s;
-  animation-delay: 3s;
+  animation-delay: 7;
 }
 
 .prodAnimado8 {
   animation-name: bounce;
   animation-iteration-count: 1;
   animation-duration: 2s;
-  animation-delay: 3.5s;
+  animation-delay: 8;
 }
 
 .prodAnimado9 {
   animation-name: bounce;
   animation-iteration-count: 1;
   animation-duration: 2s;
-  animation-delay: 4s;
-}
-
-.prodAnimado10 {
-  animation-name: bounce;
-  animation-iteration-count: 1;
-  animation-duration: 2s;
-  animation-delay: 4.5s;
+  animation-delay: 9;
 }
 
 /*Promociones*/
-.promoAnimada1 {
-  animation-name: fade;
+.promAnimada1 {
+  animation-name: bounce;
   animation-iteration-count: 1;
   animation-duration: 2s;
-  animation-delay: 0.5s;
+  animation-delay: 1;
 }
 
-.promoAnimada2 {
-  animation-name: fade;
+.promAnimada2 {
+  animation-name: bounce;
   animation-iteration-count: 1;
   animation-duration: 2s;
-  animation-delay: 1.25s;
+  animation-delay: 2;
 }
 
-.promoAnimada3 {
-  animation-name: fade;
+.promAnimada3 {
+  animation-name: bounce;
   animation-iteration-count: 1;
   animation-duration: 2s;
-  animation-delay: 2s;
+  animation-delay: 3;
 }
 
-.promoAnimada4 {
-  animation-name: fade;
+.promAnimada4 {
+  animation-name: bounce;
   animation-iteration-count: 1;
   animation-duration: 2s;
-  animation-delay: 2.75s;
+  animation-delay: 4;
 }
 
-.promoAnimada5 {
-  animation-name: fade;
+.promAnimada5 {
+  animation-name: bounce;
   animation-iteration-count: 1;
   animation-duration: 2s;
-  animation-delay: 3.5s;
-}
-
-.promoAnimada6 {
-  animation-name: fade;
-  animation-iteration-count: 1;
-  animation-duration: 2s;
-  animation-delay: 4.25s;
+  animation-delay: 5;
 }
 
 @media screen and (max-width: 280px) {

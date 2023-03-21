@@ -1,24 +1,3 @@
-// /*Productos*/
-// @for $i from 1 to 10{
-//     .prodAnimado#{$i}{
-//         animation-name: bounce;
-//         animation-iteration-count: 1; 
-//         animation-duration: 2s;
-//         animation-delay: 1 * $i;
-//     }
-// }
-
-// /*Promociones*/
-// @for $i from 1 to 6{
-//     .promAnimada#{$i}{
-//         animation-name: bounce;
-//         animation-iteration-count: 1; 
-//         animation-duration: 2s;
-//         animation-delay: 1 * $i;
-//     }
-// }
-// Estimados, quise hacer un for para los efectos, sin embargo, estos no se ejecutan, a pesar de ser el mismo código que se creó//
-
 /*Productos*/
 @for $i from 1 to 10{
     .prodAnimado#{$i}{
