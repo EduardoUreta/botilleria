@@ -11,17 +11,16 @@
   color: white;
 }
 
+/*Colores fondo*/
 /*Fondo sitio web*/
 body {
-  background: #16222A; /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #3A6073, #16222A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, #3A6073, #16222A);
   text-align: justify;
 }
 
 /*Fondo Carrusel Tragos Preparados*/
 .fondotragos {
-  background: #c0c0aa; /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #1cefff, #c0c0aa); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to left, #536976, #BBD2C5);
 }
 
 @media screen and (min-width: 481px) and (max-width: 992px) {
@@ -29,7 +28,7 @@ body {
     /*Activarmos grilla y con áreas*/
     display: grid;
     height: 300px;
-    width: 85%;
+    width: size(8);
     grid-template-areas: "header header" "productos publicidad" "footer footer";
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 75px 150px 75px;
@@ -74,7 +73,7 @@ body {
   }
   #grilla { /*GRID ÁREA responsive*/
     height: 300px;
-    width: 85%;
+    width: 75%;
     display: grid;
   }
 }
@@ -115,6 +114,7 @@ header {
   align-items: center;
   grid-area: header;
   background: #16222A;
+  border-radius: 5px;
 }
 
 #productos {
@@ -122,6 +122,7 @@ header {
   background: #0f1d26;
   justify-content: center;
   align-items: center;
+  border-radius: 5px;
 }
 
 aside {
@@ -129,6 +130,7 @@ aside {
   background: #091e2b;
   justify-content: center;
   align-items: center;
+  border-radius: 5px;
 }
 
 footer {
@@ -136,6 +138,7 @@ footer {
   background: #00131f;
   justify-content: center;
   align-items: center;
+  border-radius: 5px;
 }
 
 .imgtrago {
@@ -144,6 +147,13 @@ footer {
 
 .imgAnimado:hover {
   transform: translate(10px, 10px);
+}
+
+.containerTragos {
+  padding-right: 50px;
+  display: grid;
+  grid-template-columns: 2fr;
+  grid-template-rows: 2fr;
 }
 
 body {
@@ -282,17 +292,6 @@ body {
   animation-iteration-count: 1;
   animation-duration: 2s;
   animation-delay: 4.25s;
-}
-
-text {
-  color: white;
-}
-
-.containerTragos {
-  padding-right: 50px;
-  display: grid;
-  grid-template-columns: 2fr;
-  grid-template-rows: 2fr;
 }
 
 @media screen and (max-width: 280px) {

@@ -5,25 +5,26 @@
 @import "grid";
 @import "imagenes";
 @import "textos";
+@import "navbar";
 @import "animaciones";
 
-text{
-    color: white;
+$relleno: 10px;
+$color-back: black;
+$color-hover: gold;
+$width: 10%;
+@function size($valor){
+    @return $valor * $width;
 }
 
-.containerTragos{
-    padding-right: 50px;
-    display: grid;
-    grid-template-columns: 2fr;
-    grid-template-rows: 2fr;
+$height-principal: 500px;
 
-}
+
 //Al colocar estos mediaQuery en "_mediaQuery.scss", estos no se ejecutan.. por eso lo puse aqui
 
 @media screen and (max-width: 280px){
     #grilla{ /*GRID ÁREA responsive*/
-        height: 500px;
-        width: 90%;
+        height: $height-principal;
+        width: size(9);
         display: grid;
         grid-template-areas: 
         "header"
@@ -35,7 +36,7 @@ text{
         grid-template-rows: 23% 24% 32% 21%;
     }
     .grid-container{
-        width: 100%;
+        width: size(10);
         
         display: grid;
         grid-template-columns: repeat(2, 1fr); 
@@ -44,8 +45,8 @@ text{
 }
 @media screen and (min-width: 281px) and (max-width: 480px){
     #grilla{ /*GRID ÁREA responsive*/
-        height: 500px;
-        width: 90%;
+        height: $height-principal;
+        width: size(9);
         display: grid;
         grid-template-areas: 
         "header"
@@ -57,7 +58,7 @@ text{
         grid-template-rows: 30% 20% 30% 20%;
     }
     .grid-container{
-        width: 100%;
+        width: size(10);
         
         display: grid;
         grid-template-columns: repeat(2, 1fr); 

@@ -1,14 +1,16 @@
+/*Colores fondo*/
+$bg-sm: linear-gradient(to right, #4A00E0, #8E2DE2); 
+$bg-m: linear-gradient(to right, #3A6073, #16222A);
+$bg-l: linear-gradient(to right, #dd1818, #333333); 
+$bg-secondary: linear-gradient(to left, #536976, #BBD2C5);
+
 /*Fondo sitio web*/
 body{
-    background: #16222A;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #3A6073, #16222A);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #3A6073, #16222A); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */   
+    background: $bg-m;
     text-align: justify;
 }
 
 /*Fondo Carrusel Tragos Preparados*/
 .fondotragos{
-    background: #c0c0aa;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #1cefff, #c0c0aa);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #1cefff, #c0c0aa); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: $bg-secondary;
 }

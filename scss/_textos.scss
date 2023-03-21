@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=Ubuntu&display=swap');
+$fuente-oficial: 'PT Sans', sans-serif;
+$fuente-secundaria: 'Ubuntu', sans-serif;
 
 body{
-    font-family: 'PT Sans', sans-serif;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: $fuente-oficial;
+    font-family: $fuente-secundaria;
 }
 
 .titulo-animado{

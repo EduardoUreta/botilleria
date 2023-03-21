@@ -4,7 +4,7 @@
         /*Activarmos grilla y con áreas*/
         display: grid;
         height: 300px;
-        width: 85%;
+        width: size(8);
         grid-template-areas: 
         "header header"
         "productos publicidad"
@@ -61,7 +61,7 @@
     }
     #grilla{ /*GRID ÁREA responsive*/
         height: 300px;
-        width: 85%;
+        width: 75%;
         display: grid;
     }
 }
