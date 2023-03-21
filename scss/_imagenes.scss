@@ -3,12 +3,21 @@
 .imgtrago{
     max-width: 450px;
 }
-.imgAnimado:hover{
-    transform: translate(20px,20px);
+.imgAnimado{
+    padding: -50px; 
+    border: 3px solid white;
+    border-radius: 10%;
+    &:hover{
+        transform: translate(20px,20px);
+    }
 }
 .containerTragos{
     padding-right: 50px;
     display: grid;
     grid-template-columns: 2fr;
     grid-template-rows: 2fr;
+}
+
+.img-thumbnail:hover{
+    transform: scale(1.1, 1.1);
 }

@@ -23,67 +23,13 @@ body {
   background: linear-gradient(to left, #536976, #BBD2C5);
 }
 
-@media screen and (min-width: 481px) and (max-width: 992px) {
-  #grilla {
-    /*Activarmos grilla y con áreas*/
-    display: grid;
-    height: 300px;
-    width: size(8);
-    grid-template-areas: "header header" "productos publicidad" "footer footer";
-    grid-template-columns: 1fr 2fr;
-    grid-template-rows: 75px 150px 75px;
-  }
-  .grid-container {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-  }
-  .containerTragos {
-    width: 100%;
-    margin-left: 10px;
-    display: grid;
-    grid-template-rows: repeat(2, 1fr);
-  }
-  .productos-container {
-    width: 100%;
-    border: 1px solid yellow;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-  }
-}
-@media screen and (min-width: 993px) {
-  .grid-container {
-    width: 100%;
-    height: auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-  }
-  .containerTragos {
-    width: 90%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .productos-container {
-    width: 100%;
-    height: auto;
-    border: 1px solid white;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-  }
-  #grilla { /*GRID ÁREA responsive*/
-    height: 300px;
-    width: 75%;
-    display: grid;
-  }
-}
 /*Boton comprar productos Aqui*/
 button {
   font-size: 17px;
   padding: 0.5em 2em;
   border: transparent;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-  background: rgb(19, 124, 3);
+  background: rgb(173, 23, 0);
   text-decoration-color: white;
   border-radius: 4px;
   text-decoration-line: none;
@@ -145,6 +91,11 @@ footer {
   max-width: 450px;
 }
 
+.imgAnimado {
+  padding: -50px;
+  border: 3px solid white;
+  border-radius: 10%;
+}
 .imgAnimado:hover {
   transform: translate(20px, 20px);
 }
@@ -154,6 +105,10 @@ footer {
   display: grid;
   grid-template-columns: 2fr;
   grid-template-rows: 2fr;
+}
+
+.img-thumbnail:hover {
+  transform: scale(1.1, 1.1);
 }
 
 body {
@@ -181,67 +136,67 @@ body {
 }
 
 /*Productos*/
-.prodAnimado1 {
+.prodAnimada1 {
+  animation-name: bounce;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+  animation-delay: 0.5;
+}
+
+.prodAnimada2 {
   animation-name: bounce;
   animation-iteration-count: 1;
   animation-duration: 2s;
   animation-delay: 1;
 }
 
-.prodAnimado2 {
+.prodAnimada3 {
+  animation-name: bounce;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+  animation-delay: 1.5;
+}
+
+.prodAnimada4 {
   animation-name: bounce;
   animation-iteration-count: 1;
   animation-duration: 2s;
   animation-delay: 2;
 }
 
-.prodAnimado3 {
+.prodAnimada5 {
+  animation-name: bounce;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+  animation-delay: 2.5;
+}
+
+.prodAnimada6 {
   animation-name: bounce;
   animation-iteration-count: 1;
   animation-duration: 2s;
   animation-delay: 3;
 }
 
-.prodAnimado4 {
+.prodAnimada7 {
+  animation-name: bounce;
+  animation-iteration-count: 1;
+  animation-duration: 2s;
+  animation-delay: 3.5;
+}
+
+.prodAnimada8 {
   animation-name: bounce;
   animation-iteration-count: 1;
   animation-duration: 2s;
   animation-delay: 4;
 }
 
-.prodAnimado5 {
+.prodAnimada9 {
   animation-name: bounce;
   animation-iteration-count: 1;
   animation-duration: 2s;
-  animation-delay: 5;
-}
-
-.prodAnimado6 {
-  animation-name: bounce;
-  animation-iteration-count: 1;
-  animation-duration: 2s;
-  animation-delay: 6;
-}
-
-.prodAnimado7 {
-  animation-name: bounce;
-  animation-iteration-count: 1;
-  animation-duration: 2s;
-  animation-delay: 7;
-}
-
-.prodAnimado8 {
-  animation-name: bounce;
-  animation-iteration-count: 1;
-  animation-duration: 2s;
-  animation-delay: 8;
-}
-
-.prodAnimado9 {
-  animation-name: bounce;
-  animation-iteration-count: 1;
-  animation-duration: 2s;
-  animation-delay: 9;
+  animation-delay: 4.5;
 }
 
 /*Promociones*/
@@ -280,6 +235,60 @@ body {
   animation-delay: 5;
 }
 
+@media screen and (min-width: 481px) and (max-width: 992px) {
+  #grilla {
+    /*Activarmos grilla y con áreas*/
+    display: grid;
+    height: 300px;
+    width: size(8);
+    grid-template-areas: "header header" "productos publicidad" "footer footer";
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 75px 150px 75px;
+  }
+  .grid-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .containerTragos {
+    width: 100%;
+    margin-left: 10px;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+  }
+  .productos-container {
+    width: 100%;
+    border: 1px solid yellow;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 993px) {
+  .grid-container {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .containerTragos {
+    width: 90%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .productos-container {
+    width: 100%;
+    height: auto;
+    border: 1px solid white;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  #grilla { /*GRID ÁREA responsive*/
+    height: 300px;
+    width: 75%;
+    display: grid;
+  }
+}
 @media screen and (max-width: 280px) {
   #grilla { /*GRID ÁREA responsive*/
     height: 500px;

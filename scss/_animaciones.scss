@@ -1,13 +1,12 @@
 /*Productos*/
 @for $i from 1 to 10{
-    .prodAnimado#{$i}{
+    .prodAnimada#{$i}{
        animation-name: bounce;
        animation-iteration-count: 1; 
        animation-duration: 2s;
-       animation-delay: 1 * $i;
+       animation-delay: 0.5 * $i;
   }
 }
-
 /*Promociones*/
 @for $i from 1 to 6{
     .promAnimada#{$i}{
@@ -17,3 +16,5 @@
         animation-delay: 1 * $i;
     }
 }
+
+//Por algún motivo, estos no quieren funcionar//

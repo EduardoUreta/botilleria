@@ -1,11 +1,12 @@
 @import "pie";
 @import "fondos";
-@import "mediaQuery";
 @import "button";
 @import "grid";
 @import "imagenes";
 @import "textos";
 @import "animaciones";
+@import "mediaQuery";
+
 
 $relleno: 10px;
 $color-back: black;
@@ -16,6 +17,7 @@ $width: 10%;
 }
 
 $height-principal: 500px;
+
 
 
 //Al colocar estos mediaQuery en "_mediaQuery.scss", estos no se ejecutan.. por eso lo puse aqui
