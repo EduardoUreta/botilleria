@@ -43,6 +43,7 @@ $height-principal: 500px;
         grid-template-columns: repeat(2, 1fr); 
         grid-template-rows: repeat(2,1fr);
     }
+
 }
 @media screen and (min-width: 281px) and (max-width: 480px){
     #grilla{ /*GRID ÁREA responsive*/
@@ -64,5 +65,9 @@ $height-principal: 500px;
         display: grid;
         grid-template-columns: repeat(2, 1fr); 
         grid-template-rows: repeat(2,1fr);
+    }
+    #pie{
+        height: 300px;
+        border-radius: 0%;
     }
 }

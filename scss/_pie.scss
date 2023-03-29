@@ -3,7 +3,16 @@
     color:yellow;
     text-align: center;
 }
-#pie:hover{
-    background: linear-gradient(to right, red, blue);
-    color: black;
+a{
+    color: white;
+}
+a:hover{
+    cursor: pointer;
+    color: gold;
+}
+a:link{
+    text-decoration: none;
+} 
+a:visited{
+    text-decoration: none;
 }
