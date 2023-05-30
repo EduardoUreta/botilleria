@@ -1,3 +1,56 @@
+///////// Crear Usuario
+
+class Usuario {
+    constructor(info) {
+        this.usuario = info.usuario;
+        this.clave = info.clave;
+    };
+};
+
+let listaUsuarios = [];
+
+function crearUsuario() {
+    let usuario = prompt("Ingresa tu nombre de usuario: ");
+    let clave = prompt("Ingresa tu contraseña: ");
+
+    let nuevoUsuario = new Usuario({ usuario, clave });
+    listaUsuarios.push(nuevoUsuario);
+
+    console.log(listaUsuarios);
+    sessionStorage.setItem("usuario", JSON.stringify(nuevoUsuario));
+
+    alert(`Bienvenido/a ${usuario} a botillería, el mejor lugar para comprar alcohol`);
+};
+crearUsuario();
+
+function validarUsuario() {
+    alert("Ahora que has creado tu usuario, inicia sesión por favor:");
+    let usuarioEncontrado = false;
+    while (!usuarioEncontrado) {
+        let usuarioInput = prompt("Ingresa tu nombre de usuario (o cancelar para salir):");
+        if (usuarioInput === null) {
+            alert("Has cancelado el inicio de sesión.");
+            return; // Salir de la función si el usuario ha cancelado
+        };
+        let claveInput = prompt("Ingresa tu contraseña:");
+        for (let i = 0; i < listaUsuarios.length; i++) {
+            if (usuarioInput === listaUsuarios[i].usuario && claveInput === listaUsuarios[i].clave) {
+                usuarioEncontrado = true;
+                break;
+            };
+        };
+        if (usuarioEncontrado) {
+            alert("Tu nombre de usuario y contraseña son correctos.");
+            alert("Has accedido a nuestra botillería y productos.");
+        } else {
+            alert("Tu nombre de usuario y contraseña son incorrectos. Por favor, inténtalo nuevamente.");
+        };
+    };
+};
+
+validarUsuario();
+
+
 ///// obtener contenido del catalogo
 const contenidoCatalogo = document.getElementById("contenidoCatalogo");
 
@@ -27,9 +80,9 @@ const productos = [
 
 let carrito = [];
 
-//// Cargar carrito desde el localstorage
+//// Cargar carrito desde el sessionstorage
 
-carrito = (localStorage.getItem('carrito')) ? JSON.parse(localStorage.getItem('carrito')) : [];
+carrito = (sessionStorage.getItem('carrito')) ? JSON.parse(sessionStorage.getItem('carrito')) : [];
 
 /// Recorrer el array de productos y crear el codigo HTML con cada producto
 
@@ -135,8 +188,8 @@ const mostrarCarrito = () => {
     };
     //// Mostrar total a pagar
     totalPagar();
-    //localstorage de carrito total
-    localStorage.setItem("carrito", JSON.stringify(carrito));
+    //sessionstorage de carrito total
+    sessionStorage.setItem("carrito", JSON.stringify(carrito));
 };
 
 
@@ -146,8 +199,8 @@ const agregar = (id) => {
         if(producto.cantidad >= 1){
         producto.cantidad +=1;
         mostrarCarrito();
-    //localstorage
-    localStorage.setItem("carrito", JSON.stringify(carrito));
+    //sessionstorage
+    sessionStorage.setItem("carrito", JSON.stringify(carrito));
   }};
   
   //// Función restar productos
@@ -156,8 +209,8 @@ const agregar = (id) => {
     if (producto.cantidad > 1) {
       producto.cantidad -= 1;
       mostrarCarrito();
-      //localstorage
-      localStorage.setItem("carrito", JSON.stringify(carrito));
+      //sessionstorage
+      sessionStorage.setItem("carrito", JSON.stringify(carrito));
     }else{
       eliminar(id);
     };
@@ -189,8 +242,8 @@ vaciarCarrito.addEventListener("click", () =>{
         "Selecciona nuevamente tu producto preferido",
         "info",
     );
-    //localstorage
-    localStorage.clear();
+    //sessionstorage
+    sessionStorage.clear();
 });
 
 //// Boton finalizar compra
