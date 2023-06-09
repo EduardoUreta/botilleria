@@ -428,3 +428,21 @@ body {
   background: rgb(94, 63, 1);
   background: linear-gradient(90deg, rgb(172, 178, 0) 0%, rgb(0, 1, 64) 100%);
 }
+
+.containerCarrito{
+  display: grid;
+  place-items: center;
+  width: 89%;
+  margin-left: 50px;
+}
+.botonSumRes{
+  margin-left: 70px;
+  margin-right: auto;
+}
+
+.containerVaciarFinalizar{
+  display: grid;
+  place-items: center;
+  width: 40%;
+  margin-left: 50px;
+}

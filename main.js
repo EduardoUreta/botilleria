@@ -10,46 +10,160 @@ class Usuario {
 let listaUsuarios = [];
 
 function crearUsuario() {
-    let usuario = prompt("Ingresa tu nombre de usuario: ");
-    let clave = prompt("Ingresa tu contraseña: ");
+  return new Promise((resolve) => {
+    Swal.fire({
+      title: 'Crea tu nombre de usuario:',
+      input: 'text',
+      inputAttributes: {
+        autocapitalize: 'off'
+      },
+      showCancelButton: true,
+      confirmButtonText: 'Aceptar',
+      cancelButtonText: 'Cancelar',
+      showLoaderOnConfirm: true,
+      preConfirm: (usuario) => {
+        return new Promise((resolve) => {
+          if (usuario) {
+            resolve(usuario);
+          } else {
+            Swal.showValidationMessage('Debes ingresar un nombre de usuario');
+          }
+        });
+      },
+      allowOutsideClick: () => !Swal.isLoading()
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const usuario = result.value;
+        Swal.fire({
+          title: 'Crea tu contraseña:',
+          input: 'password',
+          showCancelButton: true,
+          confirmButtonText: 'Aceptar',
+          cancelButtonText: 'Cancelar',
+          showLoaderOnConfirm: true,
+          preConfirm: (clave) => {
+            return new Promise((resolve) => {
+              if (clave) {
+                resolve(clave);
+              } else {
+                Swal.showValidationMessage('Debes ingresar una contraseña');
+              }
+            });
+          },
+          allowOutsideClick: () => !Swal.isLoading()
+        }).then((result) => {
+          if (result.isConfirmed) {
+            const clave = result.value;
 
-    let nuevoUsuario = new Usuario({ usuario, clave });
-    listaUsuarios.push(nuevoUsuario);
+            let nuevoUsuario = { usuario, clave };
+            listaUsuarios.push(nuevoUsuario);
 
-    console.log(listaUsuarios);
-    sessionStorage.setItem("usuario", JSON.stringify(nuevoUsuario));
+            console.log(listaUsuarios);
+            sessionStorage.setItem('usuario', JSON.stringify(nuevoUsuario));
 
-    alert(`Bienvenido/a ${usuario} a botillería, el mejor lugar para comprar alcohol`);
-};
-crearUsuario();
+            Swal.fire({
+              title: `Bienvenido/a ${usuario} a botillería, el mejor lugar para comprar alcohol`,
+              icon: 'success',
+              confirmButtonText: 'Aceptar'
+            }).then(() => {
+              resolve();
+            });
+          } else {
+            resolve();
+          }
+        });
+      } else {
+        resolve();
+      }
+    });
+  });
+}
 
 function validarUsuario() {
-    alert("Ahora que has creado tu usuario, inicia sesión por favor:");
+  Swal.fire({
+    title: 'Inicia sesión:',
+    icon: 'info',
+    confirmButtonText: 'Aceptar'
+  }).then(() => {
     let usuarioEncontrado = false;
-    while (!usuarioEncontrado) {
-        let usuarioInput = prompt("Ingresa tu nombre de usuario (o cancelar para salir):");
-        if (usuarioInput === null) {
-            alert("Has cancelado el inicio de sesión.");
+    const storedUsuario = sessionStorage.getItem('usuario');
+    if (storedUsuario) {
+      const { usuario, clave } = JSON.parse(storedUsuario);
+
+      Swal.fire({
+        title: 'Ingresa tu nombre de usuario:',
+        inputValue: usuario,
+        input: 'text',
+        inputAttributes: {
+          autocapitalize: 'off'
+        },
+        showCancelButton: true,
+        confirmButtonText: 'Aceptar',
+        cancelButtonText: 'Cancelar',
+        showLoaderOnConfirm: true,
+        preConfirm: (usuarioInput) => {
+          return new Promise((resolve) => {
+            if (usuarioInput) {
+              resolve(usuarioInput);
+            } else {
+              Swal.showValidationMessage('Debes ingresar un nombre de usuario');
+            }
+          });
+        },
+        allowOutsideClick: () => !Swal.isLoading()
+      }).then((result) => {
+        if (result.isConfirmed) {
+          const usuarioInput = result.value;
+          if (usuarioInput === null) {
+            Swal.fire('Has cancelado el inicio de sesión.', '', 'warning');
             return; // Salir de la función si el usuario ha cancelado
-        };
-        let claveInput = prompt("Ingresa tu contraseña:");
-        for (let i = 0; i < listaUsuarios.length; i++) {
-            if (usuarioInput === listaUsuarios[i].usuario && claveInput === listaUsuarios[i].clave) {
+          }
+          Swal.fire({
+            title: 'Ingresa tu contraseña:',
+            input: 'password',
+            showCancelButton: true,
+            confirmButtonText: 'Aceptar',
+            cancelButtonText: 'Cancelar',
+            showLoaderOnConfirm: true,
+            preConfirm: (claveInput) => {
+              return new Promise((resolve) => {
+                if (claveInput) {
+                  resolve(claveInput);
+                } else {
+                  Swal.showValidationMessage('Debes ingresar una contraseña');
+                }
+              });
+            },
+            allowOutsideClick: () => !Swal.isLoading()
+          }).then((result) => {
+            if (result.isConfirmed) {
+              const claveInput = result.value;
+
+              if (usuarioInput === usuario && claveInput === clave) {
                 usuarioEncontrado = true;
-                break;
-            };
-        };
-        if (usuarioEncontrado) {
-            alert("Tu nombre de usuario y contraseña son correctos.");
-            alert("Has accedido a nuestra botillería y productos.");
-        } else {
-            alert("Tu nombre de usuario y contraseña son incorrectos. Por favor, inténtalo nuevamente.");
-        };
-    };
-};
+              }
 
-validarUsuario();
+              if (usuarioEncontrado) {
+                Swal.fire('Tu nombre de usuario y contraseña son correctos.', 'Has accedido a nuestra botillería y productos.', 'success');
+              } else {
+                Swal.fire('Tu nombre de usuario y contraseña son incorrectos. Por favor, inténtalo nuevamente.', '', 'error');
+              }
+            }
+          });
+        }
+      });
+    }
+  });
+}
 
+// Lógica principal
+if (sessionStorage.getItem('usuario')) {
+  validarUsuario();
+} else {
+  crearUsuario().then(() => {
+    validarUsuario();
+  });
+}
 
 ///// obtener contenido del catalogo
 const contenidoCatalogo = document.getElementById("contenidoCatalogo");
@@ -63,19 +177,6 @@ const verCarrito = document.getElementById("verCarrito");
 //// Vaciar carrito
 const vaciarCarrito = document.getElementById("vaciarCarrito");
 
-// const modalContainer = document.getElementById("modal-container")
-
-const productos = [
-    {id: 1, nombre: "Pisco", precio: 6990, img: "../recursos/productos/pisco_low.png", cantidad: 1},
-    {id: 2, nombre: "Ron", precio: 5990, img: "../recursos/productos/ron_low.png", cantidad: 1},
-    {id: 3, nombre: "Vodka", precio: 4990, img: "../recursos/productos/vodka_low.png", cantidad: 1},
-    {id: 4, nombre: "Tequila",precio: 7990, img: "../recursos/productos/tequila_low.png", cantidad: 1},
-    {id: 5, nombre: "Cerveza", precio: 3990, img: "../recursos/productos/cervezas_low.png", cantidad: 1},
-    {id: 6, nombre: "Whisky", precio: 9990, img: "../recursos/productos/whisky_low.png", cantidad: 1},
-    {id: 7, nombre: "Jugos", precio: 1990, img: "../recursos/productos/jugos_low.png", cantidad: 1},
-    {id: 8,nombre: "Bebidas", precio: 1990,img: "../recursos/productos/bebidas_low.png", cantidad: 1},
-];
-
 //// Carrito 
 
 let carrito = [];
@@ -86,46 +187,57 @@ carrito = (sessionStorage.getItem('carrito')) ? JSON.parse(sessionStorage.getIte
 
 /// Recorrer el array de productos y crear el codigo HTML con cada producto
 
-productos.forEach((producto) => {
-    let contenedor = document.createElement("div"); /// Creo el div
-    contenedor.className = "col-sm-6 col-md-4 col-lg-3";
-    contenedor.innerHTML = `  
-        <h1 class="text-center text-warning">${producto.nombre}</h1>
-        <img class="img-fluid imgAnimado bg-light" src="${producto.img}"><img>
-        <p class="text-center h3 text-warning">$${producto.precio}</p>
-    ` ///Creo el HTML de cada producto
-    contenidoCatalogo.append(contenedor); /// en el div del HTML, pego lo creado recién
+const traerProductosJson = async () =>{
+    try{
+        const response = await fetch("../data.json")
+        const data = await response.json();
+        data.forEach((producto) => {
+            let contenedor = document.createElement("div"); /// Creo el div
+            contenedor.className = "col-sm-6 col-md-4 col-lg-3";
+            contenedor.innerHTML = `  
+                <h1 class="text-center text-warning">${producto.nombre}</h1>
+                <img class="img-fluid imgAnimado bg-light" src="${producto.img}"><img>
+                <p class="text-center h3 text-warning">$${producto.precio}</p>
+                ` ///Creo el HTML de cada producto
+            contenidoCatalogo.append(contenedor); /// en el div del HTML, pego lo creado recién
 
-    let botonComprar = document.createElement("button"); /// Creo un boton html
-    botonComprar.innerHTML = "Añadir al carrito"; /// con un texto
-    botonComprar.className = "bg-secondary border text-light buttonAnadir"
-    contenedor.append(botonComprar); /// en el div del html, pego lo recien creado
-
+            let botonComprar = document.createElement("button"); /// Creo un boton html
+            botonComprar.innerHTML = "Añadir al carrito"; /// con un texto
+            botonComprar.className = "bg-secondary border text-light buttonAnadir"
+            contenedor.append(botonComprar); /// en el div del html, pego lo recien creado
 
 /// Escuchar evento // Cargar carrito con selección de productos
 
 //// Si el producto ya está en carrito, agrega 1 cantidad, si no, crealo
-    botonComprar.addEventListener("click", () =>{
-        let productoEnCarrito = carrito.find(item => item.id === producto.id);
-        if (productoEnCarrito) {
-          productoEnCarrito.cantidad++;
-        }else{
-        carrito.push({
-            id: producto.id,
-            img: producto.img,
-            nombre: producto.nombre,
-            precio: producto.precio,
-            cantidad: 1,
-        })};
-        Toastify({
-            text: `Has agregado ${producto.nombre}`,
-            duration: 3000,
-            style:{
-                background: "linear-gradient(to right, #00b09b, #96c92d)",
-            },
-        }).showToast();
-    });
-});
+            botonComprar.addEventListener("click", () =>{
+                let productoEnCarrito = carrito.find(item => item.id === producto.id);
+                if (productoEnCarrito) {
+                productoEnCarrito.cantidad++;
+                }else{
+                carrito.push({
+                    id: producto.id,
+                    img: producto.img,
+                    nombre: producto.nombre,
+                    precio: producto.precio,
+                    cantidad: 1,
+                })};
+                Toastify({
+                    text: `Has agregado ${producto.nombre}`,
+                    duration: 3000,
+                    style:{
+                        background: "linear-gradient(to right, #00b09b, #96c92d)",
+                    },
+                    gravity: "bottom",
+                    position: "right",
+                }).showToast();
+            });
+        });
+    }catch(error){
+        console.log(error);
+    }
+};
+
+traerProductosJson();
 
 //// Ver productos agregados en el carrito ////
 
@@ -139,16 +251,16 @@ const mostrarCarrito = () => {
         let card = document.createElement("div");
         card.classList.add("col-xs-4", "col-sm-4", "col-md-4", "col-lg-3");
         card.innerHTML = `
-        <div class="card">
+        <div class="card containerCarrito">
             <img class="img-fluid bg-light card-img-top" width="250px" src="${producto.img}"></img>
             <h3 class="text-center text-dark">${producto.nombre}</h3>
             <p class="h3 text-center text-dark">${producto.precio}</p>
             <h4 class="text-center text-dark">Cantidad: ${producto.cantidad}</h4>
         </div>
         <div> 
-            <button class="btn btn-light" id="restar${producto.id}">-</button>
-            <button class="btn btn-light" id="agregar${producto.id}">+</button>
-            <button class="border btn colorBoton text-light bg-danger" id="eliminar${producto.id}">Eliminar</button>
+            <button class="btn btn-light botonSumRes" id="restar${producto.id}">-</button>
+            <button class="btn btn-light botonSumRes" id="agregar${producto.id}">+</button>
+            <button class="border btn colorBoton text-light bg-danger containerCarrito" id="eliminar${producto.id}">Eliminar</button>
         </div>
         `;
         contenidoCarrito.appendChild(card);
@@ -157,18 +269,45 @@ const mostrarCarrito = () => {
         const botonEliminar = document.getElementById(`eliminar${producto.id}`);
         botonEliminar.addEventListener("click", () => {
           eliminar(producto.id);
+          Toastify({
+            text: `Has eliminado ${producto.nombre}`,
+            duration: 3000,
+            style:{
+                background: "linear-gradient(to right, #333333, #dd1818)",
+            },
+            gravity: "bottom",
+            position: "right",
+        }).showToast();
         });
-        
+
         //Restar productos
         const botonRestar = document.getElementById(`restar${producto.id}`);
         botonRestar.addEventListener("click", () => {
           restar(producto.id);
+          Toastify({
+            text: `Has restado 1 ${producto.nombre}`,
+            duration: 3000,
+            style:{
+                background: "linear-gradient(to right, #f7971e, #ffd200)",
+            },
+            gravity: "bottom",
+            position: "right",
+        }).showToast();
         });
 
         //// Agregar productos
         const botonSumar = document.getElementById(`agregar${producto.id}`);
         botonSumar.addEventListener("click", () => {
           agregar(producto.id);
+          Toastify({
+            text: `Has agregado ${producto.nombre}`,
+            duration: 3000,
+            style:{
+                background: "linear-gradient(to right, #000000, #0f9b0f)",
+            },
+            gravity: "bottom",
+            position: "right",
+        }).showToast();
         });
     
     });
