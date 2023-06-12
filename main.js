@@ -203,7 +203,7 @@ const traerProductosJson = async () =>{
 
             let botonComprar = document.createElement("button"); /// Creo un boton html
             botonComprar.innerHTML = "Añadir al carrito"; /// con un texto
-            botonComprar.className = "bg-secondary border text-light buttonAnadir"
+            botonComprar.className = "fondoAñadir border text-light buttonAnadir"
             contenedor.append(botonComprar); /// en el div del html, pego lo recien creado
 
 /// Escuchar evento // Cargar carrito con selección de productos
@@ -367,7 +367,7 @@ const totalPagar = () => {
     const total = carrito.reduce((acum, item) => acum + (item.precio * item.cantidad), 0);
     const totalCompra = document.createElement("div");
     totalCompra.className = "total-content";
-    totalCompra.innerHTML = `<h2 class="text-center text-warning">Total a pagar: </h2> <h1 class="text-light"> ${total} CPL </h1>`
+    totalCompra.innerHTML = `<h1 class="text-center text-warning">TOTAL A PAGAR: </h1> <h1 class="text-light"> ${total} CPL </h1>`
     contenidoCarrito.append(totalCompra);
 };
     

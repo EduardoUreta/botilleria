@@ -433,16 +433,44 @@ body {
   display: grid;
   place-items: center;
   width: 89%;
-  margin-left: 50px;
+  margin-left: 15px;
 }
 .botonSumRes{
-  margin-left: 70px;
-  margin-right: auto;
+  margin-left: 10px;
 }
 
 .containerVaciarFinalizar{
   display: grid;
   place-items: center;
   width: 40%;
-  margin-left: 50px;
+  margin-left: 90px;
+}
+
+.probando{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+#contenidoCarrito{
+  margin-left: 70px;
+  row-gap: 10px;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 69%);
+}
+
+#contenidoCatalogo{
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 69%);
+  margin-left: 1px;
+}
+
+.fondoAñadir{
+  background: rgb(103,103,103);
+  background: linear-gradient(90deg, rgba(103,103,103,1) 0%, rgba(52,52,52,1) 51%);
+}
+
+.apretarCarrito{
+  padding: 50px;
+  margin: 20px;
 }
